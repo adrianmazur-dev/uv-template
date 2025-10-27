@@ -5,3 +5,11 @@ project_name:
 project_description:
   type: str
   help: What is your project description?
+
+project_author_name:
+  type: str
+  help: What is the author's name?
+
+project_author_email:
+  type: str
+  help: What is the author's email?
