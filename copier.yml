@@ -8,6 +8,4 @@ project_description:
   type: str
   help: What is your project description?
 
-_tasks:
-  - uv venv
 
