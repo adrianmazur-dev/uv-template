@@ -1,15 +1,10 @@
 # ---- Project Info and Dependencies ----
 
-[project.urls]
-Repository = "https://github.com/{{ package_github_org }}/{{ package_name }}"
-# Homepage = "https://..."
-# Documentation = "https://..."
-
 [project]
-name = "{{ package_name }}"
-description = "{{ package_description }}"
+name = "{{ project_name }}"
+description = "{{ project_description }}"
 authors = [
-    { name="{{ package_author_name }}", email="{{ package_author_email }}" },
+    { name="{{ project_author_name }}", email="{{ project_author_email }}" },
 ]
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
@@ -33,10 +28,6 @@ dev = [
     "codespell>=2.4.1",
     "basedpyright>=1.29.1",
 ]
-
-[project.scripts]
-# Add script entry points here:
-{{ package_name }} = "{{ package_module }}:main"
 
 
 # ---- Build system ----
