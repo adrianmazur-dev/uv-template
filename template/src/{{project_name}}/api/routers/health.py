@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from ... import __version__
+from ..._version import __version__
 from ...config import settings
 from ..schemas.responses.base import HealthResponse
 

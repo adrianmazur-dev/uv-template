@@ -6,7 +6,7 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .. import __version__
+from .._version import __version__
 from ..config import settings
 from ..logging import setup_logging
 from .exceptions import register_exception_handlers
@@ -16,7 +16,7 @@ from .routers import register_routers
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     setup_logging(settings.environment, settings.log_level)
     yield
 

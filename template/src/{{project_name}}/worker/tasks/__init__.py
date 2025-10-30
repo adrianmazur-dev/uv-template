@@ -6,5 +6,5 @@ if TYPE_CHECKING:
     from collections.abc import Callable
 
 
-def get_task_functions() -> list[Callable]:
+def get_task_functions() -> list[Callable[..., object]]:
     return []
