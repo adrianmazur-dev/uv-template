@@ -17,3 +17,13 @@ project_author_email:
   type: str
   help: What is the author's email?
   default: unknown@example.com
+
+include_fastapi:
+  type: bool
+  help: Include FastAPI for web API development?
+  default: true
+
+include_arq:
+  type: bool
+  help: Include ARQ for async task queue with Redis?
+  default: false

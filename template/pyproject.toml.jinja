@@ -14,6 +14,7 @@ dynamic = ["version"]
 # ---- Main dependencies ----
 
 dependencies = [
+    "pydantic-settings>=2.6.0",
 ]
 
 
@@ -30,6 +31,22 @@ dev = [
     "basedpyright>=1.29.1",
     "funlog>=0.2.1",
 ]
+
+{% if include_fastapi or include_arq %}
+[project.optional-dependencies]
+{% if include_fastapi %}
+api = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+]
+{% endif %}
+{% if include_arq %}
+worker = [
+    "arq>=0.26.0",
+    "redis>=5.2.0",
+]
+{% endif %}
+{% endif %}
 
 
 # ---- Build system ----

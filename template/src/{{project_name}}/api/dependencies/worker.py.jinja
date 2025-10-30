@@ -1,0 +1,20 @@
+{% if include_fastapi and include_arq %}
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any
+
+from ...worker.utils import get_redis_pool
+
+if TYPE_CHECKING:
+    from arq.connections import ArqRedis
+
+
+async def get_redis() -> ArqRedis:
+    return await get_redis_pool()
+
+
+async def enqueue_job(job_name: str, *args: Any, **kwargs: Any) -> str | None:
+    from ...worker.utils import enqueue_job as _enqueue_job
+
+    return await _enqueue_job(job_name, *args, **kwargs)
+{% endif %}
