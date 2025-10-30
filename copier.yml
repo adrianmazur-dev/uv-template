@@ -1,4 +1,7 @@
 _subdirectory: template
+_exclude:
+  - "{% if not include_fastapi %}src/{{project_name}}/api{% endif %}"
+  - "{% if not include_arq %}src/{{project_name}}/worker{% endif %}"
 
 project_name:
   type: str

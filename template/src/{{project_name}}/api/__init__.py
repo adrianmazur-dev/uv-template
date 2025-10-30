@@ -1,4 +1,3 @@
-{% if include_fastapi %}
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
@@ -47,4 +46,3 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
-{% endif %}

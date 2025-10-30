@@ -11,4 +11,3 @@ class HealthResponse(BaseSchema):
     status: str
     version: str
     environment: str
-    redis_status: str | None = None

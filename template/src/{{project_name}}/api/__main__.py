@@ -1,4 +1,3 @@
-{% if include_fastapi %}
 from __future__ import annotations
 
 import uvicorn
@@ -12,4 +11,3 @@ if __name__ == "__main__":
         port=settings.api_port,
         reload=settings.api_reload,
     )
-{% endif %}

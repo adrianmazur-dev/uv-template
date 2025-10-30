@@ -1,4 +1,3 @@
-{% if include_arq %}
 from __future__ import annotations
 
 from arq.connections import RedisSettings
@@ -17,4 +16,3 @@ class WorkerSettings:
     max_jobs = settings.worker_max_jobs
     max_tries = settings.worker_max_tries
     job_timeout = settings.worker_timeout
-{% endif %}
