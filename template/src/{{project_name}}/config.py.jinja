@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+from typing import ClassVar
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from .core.enums import Environment
 
 
 class Settings(BaseSettings):
-    model_config: SettingsConfigDict = SettingsConfigDict(
+    model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=False,

@@ -9,5 +9,5 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-async def shutdown_handler(ctx: dict[str, Any]) -> None:
+async def shutdown_handler(_ctx: dict[str, Any]) -> None:
     logger.info("Worker shutting down")

@@ -12,6 +12,6 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-async def startup_handler(ctx: dict[str, Any]) -> None:
+async def startup_handler(_ctx: dict[str, Any]) -> None:
     setup_logging(settings.environment, settings.log_level)
     logger.info("Worker starting up")
