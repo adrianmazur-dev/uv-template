@@ -2,7 +2,7 @@
 
 .PHONY: default install lint test upgrade build clean
 
-default: install lint test 
+default: install lint test clean
 
 install:
 	uv sync --all-extras

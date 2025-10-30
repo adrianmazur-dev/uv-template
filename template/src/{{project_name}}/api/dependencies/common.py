@@ -1,4 +1,3 @@
-{% if include_fastapi %}
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -11,4 +10,3 @@ def get_settings() -> Settings:
     from ...config import settings
 
     return settings
-{% endif %}
