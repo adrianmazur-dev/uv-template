@@ -1,0 +1,53 @@
+# ---- Project Info and Dependencies ----
+
+[project]
+name = "uv-template"
+description = ""
+authors = [{ name = "Adrian Mazur", email = "adrianmazur.dev@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+version = "0.1.0"
+
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.9",
+    "codespell>=2.4.1",
+    "rich>=14.0.0",
+    "funlog>=0.2.1",
+    "copier>=9.0.0",
+]
+
+# ---- Settings ----
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    # https://docs.astral.sh/ruff/rules/
+    "E",  # https://docs.astral.sh/ruff/rules/#error-e
+    "F",  # https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "UP", # https://docs.astral.sh/ruff/rules/#pyupgrade-up
+    "B",  # https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    "I",  # https://docs.astral.sh/ruff/rules/#isort-i
+]
+ignore = [
+    "E501",   # https://docs.astral.sh/ruff/rules/line-too-long/
+    "E402",   # https://docs.astral.sh/ruff/rules/module-import-not-at-top-of-file/
+    "E731",   # https://docs.astral.sh/ruff/rules/lambda-assignment/
+    "W191",   # https://docs.astral.sh/ruff/rules/tab-indentation/
+    "E111",   # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple/
+    "E114",   # https://docs.astral.sh/ruff/rules/indentation-with-invalid-multiple-comment/
+    "E117",   # https://docs.astral.sh/ruff/rules/over-indented/
+    "D206",   # https://docs.astral.sh/ruff/rules/docstring-tab-indentation/
+    "D300",   # https://docs.astral.sh/ruff/rules/triple-single-quotes/
+    "Q000",   # https://docs.astral.sh/ruff/rules/bad-quotes-inline-string/
+    "Q001",   # https://docs.astral.sh/ruff/rules/bad-quotes-multiline-string/
+    "Q002",   # https://docs.astral.sh/ruff/rules/bad-quotes-docstring/
+    "Q003",   # https://docs.astral.sh/ruff/rules/avoidable-escaped-quote/
+    "COM812", # https://docs.astral.sh/ruff/rules/missing-trailing-comma/
+    "COM819", # https://docs.astral.sh/ruff/rules/prohibited-trailing-comma/
+    "ISC002", # https://docs.astral.sh/ruff/rules/multi-line-implicit-string-concatenation/
+]

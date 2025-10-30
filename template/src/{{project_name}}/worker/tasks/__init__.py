@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
 
-def get_task_functions() -> list:
+if TYPE_CHECKING:
+    from collections.abc import Callable
+
+
+def get_task_functions() -> list[Callable[..., object]]:
     return []

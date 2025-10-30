@@ -10,9 +10,7 @@ from starlette.responses import Response
 
 class RequestIDMiddleware(BaseHTTPMiddleware):
     @override
-    async def dispatch(
-        self, request: Request, call_next: RequestResponseEndpoint
-    ) -> Response:
+    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
         response = await call_next(request)
         response.headers["X-Request-ID"] = request_id

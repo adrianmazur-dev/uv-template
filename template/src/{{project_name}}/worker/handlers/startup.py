@@ -7,7 +7,7 @@ from ...config import settings
 from ...logging import setup_logging
 
 if TYPE_CHECKING:
-    from arq.worker import Worker
+    pass
 
 logger = logging.getLogger(__name__)
 

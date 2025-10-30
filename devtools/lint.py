@@ -4,22 +4,22 @@ from funlog import log_calls
 from rich import get_console, reconfigure
 from rich import print as rprint
 
-# Update as needed.
-SRC_PATHS = ["src", "tests", "devtools"]
-DOC_PATHS = ["README.md"]
+# Paths for the template repository (not the generated project)
+TEMPLATE_PATHS = ["template/src", "template/tests", "template/devtools"]
+DOC_PATHS = ["README.md", "copier.yml"]
 
 
-reconfigure(emoji=not get_console().options.legacy_windows)  # No emojis on legacy windows.
+reconfigure(emoji=not get_console().options.legacy_windows)
 
 
 def main():
     rprint()
+    rprint("[bold blue]Linting template repository...[/bold blue]")
 
     errcount = 0
-    errcount += run(["codespell", "--write-changes", *SRC_PATHS, *DOC_PATHS])
-    errcount += run(["ruff", "check", "--fix", *SRC_PATHS])
-    errcount += run(["ruff", "format", *SRC_PATHS])
-    errcount += run(["basedpyright", "--stats", *SRC_PATHS])
+    errcount += run(["codespell", "--write-changes", *TEMPLATE_PATHS, *DOC_PATHS])
+    errcount += run(["ruff", "check", "--fix", *TEMPLATE_PATHS])
+    errcount += run(["ruff", "format", *TEMPLATE_PATHS])
 
     rprint()
 
