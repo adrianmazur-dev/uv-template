@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
+from ... import __version__
 from ...config import settings
 from ..schemas.responses.base import HealthResponse
 
@@ -12,6 +13,6 @@ router = APIRouter()
 async def health_check() -> HealthResponse:
     return HealthResponse(
         status="ok",
-        version="0.1.0",
+        version=__version__,
         environment=settings.environment.value,
     )

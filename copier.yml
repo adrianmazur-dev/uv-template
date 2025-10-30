@@ -30,3 +30,13 @@ include_arq:
   type: bool
   help: Include ARQ for async task queue with Redis?
   default: false
+
+_tasks:
+  - command: "git init -b main"
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: "git add ."
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: "git commit -m 'chore: initial commit'"
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: "make"
+    when: "{{ _copier_operation == 'copy' }}"
