@@ -15,6 +15,7 @@ dynamic = ["version"]
 
 dependencies = [
     "pydantic-settings>=2.6.0",
+    "structlog>=24.4.0",
 ]
 
 
@@ -29,7 +30,6 @@ dev = [
     "codespell>=2.4.1",
     "rich>=14.0.0",
     "basedpyright>=1.29.1",
-    "funlog>=0.2.1",
 ]
 
 {% if include_fastapi or include_arq %}
