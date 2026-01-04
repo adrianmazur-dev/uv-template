@@ -1,0 +1,35 @@
+services:
+{% if include_fastapi %}
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    {% if include_arq %}
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    {% endif %}
+{% endif %}
+
+{% if include_arq %}
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+{% endif %}
+
+{% if include_fastapi or include_arq %}
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+{% endif %}
