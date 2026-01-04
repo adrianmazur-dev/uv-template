@@ -17,6 +17,12 @@ dependencies = [
     "pydantic-settings>=2.6.0",
 ]
 
+[project.scripts]
+lint = "scripts.lint:main"
+test = "scripts.test_runner:main"
+clean = "scripts.clean:main"
+upgrade = "scripts.upgrade:main"
+
 
 # ---- Dev dependencies ----
 
@@ -101,6 +107,8 @@ ignore = [
 
 [tool.basedpyright]
 include = ["src", "tests"]
+venvPath = "."
+venv = ".venv"
 reportIgnoreCommentWithoutRule = false
 reportUnnecessaryTypeIgnoreComment = false
 reportMissingTypeStubs = false
@@ -109,12 +117,6 @@ reportAny = false
 reportExplicitAny = false
 reportImplicitStringConcatenation = false
 reportUnreachable = false
-# reportPrivateImportUsage = false
-# reportPrivateLocalImportUsage = false
-# reportMissingImports = false
-# reportUnnecessaryIsInstance = false
-# reportUnknownVariableType = false
-# reportUnknownArgumentType = false
 
 [tool.codespell]
 # ignore-words-list = "foo,bar"

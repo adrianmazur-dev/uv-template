@@ -1,3 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
+
 # ---- Project Info and Dependencies ----
 
 [project]
@@ -9,6 +19,12 @@ requires-python = ">=3.11,<4.0"
 version = "0.1.0"
 
 dependencies = []
+
+[project.scripts]
+lint = "scripts.lint:main"
+test = "scripts.test:main"
+clean = "scripts.clean:main"
+upgrade = "scripts.upgrade:main"
 
 [dependency-groups]
 dev = [
