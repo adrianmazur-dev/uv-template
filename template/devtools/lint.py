@@ -1,6 +1,6 @@
 import subprocess
+import time
 
-from funlog import log_calls
 from rich import get_console, reconfigure
 from rich import print as rprint
 
@@ -32,10 +32,11 @@ def main():
     return errcount
 
 
-@log_calls(level="warning", show_timing_only=True)
 def run(cmd: list[str]) -> int:
     rprint()
     rprint(f"[bold green]>> {' '.join(cmd)}[/bold green]")
+
+    start_time = time.perf_counter()
     errcount = 0
     try:
         subprocess.run(cmd, text=True, check=True)
@@ -45,6 +46,10 @@ def run(cmd: list[str]) -> int:
     except subprocess.CalledProcessError as e:
         rprint(f"[bold red]Error: {e}[/bold red]")
         errcount = 1
+    finally:
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+        rprint(f"[dim]Time: {elapsed_time:.4f}s[/dim]")
 
     return errcount
 
