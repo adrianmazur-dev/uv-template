@@ -4,5 +4,8 @@ from arq.worker import run_worker
 
 from .settings import WorkerSettings
 
-if __name__ == "__main__":
+def main():
     run_worker(WorkerSettings)  # pyright: ignore[reportArgumentType]
+
+if __name__ == "__main__":
+    main()

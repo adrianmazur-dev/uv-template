@@ -21,6 +21,29 @@ project_author_email:
   help: What is the author's email?
   default: unknown@example.com
 
+python_version:
+  type: str
+  help: Which Python version to use?
+  default: "3.12"
+  choices:
+    - "3.11"
+    - "3.12"
+    - "3.13"
+
+project_license:
+  type: str
+  help: Which license to use for the project?
+  default: MIT
+  choices:
+    - MIT
+    - Apache-2.0
+    - None
+
+repository_url:
+  type: str
+  help: What is the repository URL? (optional)
+  default: ""
+
 include_fastapi:
   type: bool
   help: Include FastAPI for web API development?

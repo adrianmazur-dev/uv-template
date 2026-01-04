@@ -6,8 +6,15 @@ description = "{{ project_description }}"
 authors = [
     { name="{{ project_author_name }}", email="{{ project_author_email }}" },
 ]
+{% if project_license != "None" %}
+license = { text="{{ project_license }}" }
+{% endif %}
 readme = "README.md"
-requires-python = ">=3.11,<4.0"
+requires-python = ">={{ python_version }},<4.0"
+{% if repository_url %}
+[project.urls]
+Repository = "{{ repository_url }}"
+{% endif %}
 dynamic = ["version"]
 
 
@@ -22,6 +29,12 @@ lint = "scripts.lint:main"
 test = "scripts.test_runner:main"
 clean = "scripts.clean:main"
 upgrade = "scripts.upgrade:main"
+{% if include_fastapi %}
+start-api = "{{ project_name | replace('-', '_') }}.api.__main__:main"
+{% endif %}
+{% if include_arq %}
+start-worker = "{{ project_name | replace('-', '_') }}.worker.__main__:main"
+{% endif %}
 
 
 # ---- Dev dependencies ----
@@ -69,7 +82,7 @@ bump = true
 
 [tool.hatch.build.targets.wheel]
 # The source location for the package.
-packages = ["src/{{ project_name }}"]
+packages = ["src/{{ project_name | replace('-', '_') }}"]
 
 
 # ---- Settings ----
