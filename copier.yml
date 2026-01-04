@@ -61,7 +61,7 @@ _tasks:
     when: "{{ _copier_operation == 'copy' }}"
   - command: "git commit -m 'chore: initial commit'"
     when: "{{ _copier_operation == 'copy' }}"
-  - command: "uv run scripts/lint.py"
+  - command: "uv run lint"
     when: "{{ _copier_operation == 'copy' }}"
   - command: "git add ."
     when: "{{ _copier_operation == 'copy' }}"

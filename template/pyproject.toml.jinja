@@ -82,7 +82,7 @@ bump = true
 
 [tool.hatch.build.targets.wheel]
 # The source location for the package.
-packages = ["src/{{ project_name | replace('-', '_') }}"]
+packages = ["src/{{ project_name | replace('-', '_') }}", "scripts"]
 
 
 # ---- Settings ----
