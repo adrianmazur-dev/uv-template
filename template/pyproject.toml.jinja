@@ -27,9 +27,7 @@ dev = [
     "pytest-sugar>=1.0.0",
     "ruff>=0.11.9",
     "codespell>=2.4.1",
-    "rich>=14.0.0",
     "basedpyright>=1.29.1",
-    "funlog>=0.2.1",
 ]
 
 {% if include_fastapi or include_arq %}
@@ -102,7 +100,7 @@ ignore = [
 ]
 
 [tool.basedpyright]
-include = ["src", "tests", "devtools"]
+include = ["src", "tests"]
 reportIgnoreCommentWithoutRule = false
 reportUnnecessaryTypeIgnoreComment = false
 reportMissingTypeStubs = false

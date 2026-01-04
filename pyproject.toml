@@ -14,8 +14,6 @@ dependencies = []
 dev = [
     "ruff>=0.11.9",
     "codespell>=2.4.1",
-    "rich>=14.0.0",
-    "funlog>=0.2.1",
     "copier>=9.0.0",
 ]
 

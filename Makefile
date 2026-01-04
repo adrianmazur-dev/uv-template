@@ -8,14 +8,16 @@ install:
 	uv sync --all-extras
 
 lint:
-	uv run python -m devtools.lint
+	uv run codespell --write-changes template/src template/tests README.md copier.yml
+	uv run ruff check --fix template/src template/tests
+	uv run ruff format template/src template/tests
 
 test:
 	@echo "Testing uv-template..."
 	@TEST_DIR=$$(mktemp -d); \
 	trap "rm -rf $$TEST_DIR" EXIT; \
 	echo "Generating test project in $$TEST_DIR"; \
-	if copier copy --defaults \
+	if uv run copier copy --defaults \
 		--data project_name="test-project" \
 		--data project_description="Test project" \
 		--data project_author_name="Test Author" \

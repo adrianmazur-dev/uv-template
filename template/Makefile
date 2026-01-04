@@ -8,7 +8,10 @@ install:
 	uv sync --all-extras
 
 lint:
-	uv run python devtools/lint.py
+	uv run codespell --write-changes src tests README.md
+	uv run ruff check --fix src tests
+	uv run ruff format src tests
+	uv run basedpyright --stats src tests
 
 test:
 	uv run pytest
