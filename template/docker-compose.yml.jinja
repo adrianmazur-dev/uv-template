@@ -1,8 +1,9 @@
 services:
 {% if include_fastapi %}
   api:
-    build: .
-    command: start-api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
     ports:
       - "8000:8000"
     environment:
@@ -17,8 +18,9 @@ services:
 
 {% if include_arq %}
   worker:
-    build: .
-    command: start-worker
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
     environment:
       - REDIS_URL=redis://redis:6379
     depends_on:

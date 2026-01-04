@@ -9,14 +9,14 @@ ENV UV_LINK_MODE=copy
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev {% if include_fastapi %}--extra api{% endif %} {% if include_arq %}--extra worker{% endif %}
+    uv sync --frozen --no-install-project --no-dev --extra api
 
 ADD . /app
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev {% if include_fastapi %}--extra api{% endif %} {% if include_arq %}--extra worker{% endif %}
+    uv sync --frozen --no-dev --extra api
 
 ENV PATH="/app/.venv/bin:$PATH"
 
 ENTRYPOINT []
-CMD ["bash"]
+CMD ["start-api"]
